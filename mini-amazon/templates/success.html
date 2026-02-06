@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success | Sheetal Readymade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        /* Is page ke liye special centering */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600');
+            background-size: cover;
+        }
+        .receipt-box {
+            padding: 40px;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            border: 1px solid #00ff88; /* Neon Green Border */
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+        }
+        .success-icon {
+            font-size: 5rem;
+            color: #00ff88;
+            margin-bottom: 20px;
+            animation: pop 0.5s ease;
+        }
+        .order-details {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .order-details p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        @keyframes pop {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card receipt-box">
+        <i class="fas fa-check-circle success-icon"></i>
+        
+        <h1 class="neon-text" style="font-size: 2rem;">Order Placed!</h1>
+        <p>Thank you for shopping with <br><strong>Sheetal Readymade</strong></p>
+
+        <div class="order-details">
+            <h3 style="border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; margin-bottom: 15px;">Order Receipt</h3>
+            <p><span>Order ID:</span> <span style="color: #00ff88; font-weight: bold;">{{ order_id }}</span></p>
+            <p><span>Status:</span> <span style="background: #00ff88; color: black; padding: 2px 8px; border-radius: 5px; font-weight: bold;">{{ amount }}</span></p>
+            <p><span>Delivery:</span> <span>2-3 Days</span></p>
+        </div>
+
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 25px;">You will receive a confirmation message shortly.</p>
+
+        <a href="/" class="btn-neon">
+            <i class="fas fa-arrow-left"></i> Continue Shopping
+        </a>
+    </div>
+
+</body>
+</html>

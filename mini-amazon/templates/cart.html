@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Shopping Cart 🛒</h2>
+<hr>
+{% if cart_items %}
+    <table class="table table-striped align-middle">
+        <thead class="table-dark"><tr><th>Product</th><th>Price</th></tr></thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td><img src="{{ item[3] }}" width="50" style="margin-right:10px;">{{ item[1] }}</td>
+                <td>₹{{ item[2] }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="fw-bold fs-5"><td>Grand Total</td><td class="text-success">₹{{ total }}</td></tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end gap-2">
+        <a href="/clear_cart" class="btn btn-outline-danger">Empty Cart</a>
+        <a href="/checkout" class="btn btn-success btn-lg">✅ Place Order Now</a>
+    </div>
+{% else %}
+    <div class="alert alert-warning text-center p-5">
+        <h4>Cart Empty hai! 😢</h4><a href="/" class="btn btn-primary mt-2">Shopping Karo</a>
+    </div>
+{% endif %}
+{% endblock %}
